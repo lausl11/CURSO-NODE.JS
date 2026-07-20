@@ -1,0 +1,17 @@
+*{
+    text-align: center;
+}
+h1{
+    color: rgb(9, 54, 54);
+    font-size: xx-large;
+    background-color: aqua;
+    border-radius: 30px;
+}
+
+h2{
+    color: rgb(9, 54, 54);
+    font-size: x-large;
+    background-color: aqua;
+    border-radius: 30px;
+    margin: 40px;
+}
