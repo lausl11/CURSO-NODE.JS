@@ -4,7 +4,14 @@ CREATE TABLE usuarios (
     idade INT
 );
 
-VALUES (nome, email, idade)(
-    ('laura','laura@meu.com', 20),
-    
-)
+CREATE TABLE avisos(
+    titulo VARCHAR(20),
+    descrisao VARCHAR(100),
+    data DATE
+);
+
+CREATE TABLE promoçoes(
+    item VARCHAR(50),
+    preco_inicial DECIMAL,
+    preco_promocional DECIMAL
+);
