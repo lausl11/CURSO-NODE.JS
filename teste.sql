@@ -12,6 +12,8 @@ VALUES
   
 DELETE FROM usuarios WHERE nome = "pedro de amaral";  
 
+UPDATE usuarios SET email = "rodolfogolfo@gmail.com" WHERE nome = "rodolfo";
+
 CREATE TABLE avisos(
     titulo VARCHAR(20),
     descrisao VARCHAR(100),
@@ -29,3 +31,11 @@ CREATE TABLE promoçoes(
     preco_inicial DECIMAL,
     preco_promocional DECIMAL
 );
+
+INSERT INTO promoçoes (item, preco_inicial, preco_promocional)
+VALUES 
+    ("garrafa de agua", 4.50, 2.99),
+    ("2x legging suplex", 130.90, 99.90),
+    ("tv smart", 8060.90, 7500.90);
+
+    UPDATE promoçoes SET preco_inicial = 130.00 WHERE nome = "2x legging suplex";
