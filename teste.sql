@@ -4,13 +4,13 @@ CREATE TABLE usuarios (
     idade INT
 );
 
-INSERT INTO usuarios(nome, email, idade) 
+INSERT INTO usuarios (nome, email, idade) 
 VALUES
-    ("joao cardoso", "jocao@0email.com", 90),
-    ("gustavo", "gogo@0email.com", 63),
-    ("yamal", "yamal@0email.com", 29);
+    ("roberto carlos", "robertin@gmail.com", 59),
+    ("luiza antonia", "luiza@gmail.com", 70),
+    ("rodolfo", "rodolfo@gmail.com", 99);
   
-  
+DELETE FROM usuarios WHERE nome = "pedro de amaral";  
 
 CREATE TABLE avisos(
     titulo VARCHAR(20),
