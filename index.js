@@ -15,9 +15,13 @@ const { engine } = require('express-handlebars');
     })
     
     // rota
-    app.get('/cad', function (req, res){
+    app.get('/avisos', function (req, res){
         res.render('avisos')
     });
+
+    app.get('/formulario', function (req, res){
+        res.render('formulario')
+    })
 
 app.listen(3000, function(){
     console.log("servidor rodando na url localhost:3000");
