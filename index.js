@@ -7,6 +7,18 @@ const { engine } = require('express-handlebars');
    app.engine('handlebars', engine({ defaultLayout: 'main' }));
     app.set('view engine', 'handlebars')
 
+    // conexão ao BD com sequelize
+    const Sequelize = require('sequelize')
+    const sequelize = new Sequelize('sistemadecadastro', 'root', 'Lau17112010*', {
+        host: "localhost",
+        dialect: 'mysql'
+    })
+    
+    // rota
+    app.get('/cad', function (req, res){
+        res.render('avisos')
+    });
+
 app.listen(3000, function(){
     console.log("servidor rodando na url localhost:3000");
 });

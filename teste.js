@@ -1,14 +1,9 @@
-const Sequelize = require('sequelize')
-const sequelize = new Sequelize('sistemadecadastro', 'root', 'Lau17112010*', {
-    host: "localhost",
-    dialect: 'mysql'
-})
 
-sequelize.authenticate().then(function(){
-    console.log("conectado com sucesso!")
-}).catch(function(erro){
-    console.log("falha ao conectar: "+erro)
-})
+    const Sequelize = require('sequelize')
+    const sequelize = new Sequelize('sistemadecadastro', 'root', 'Lau17112010*', {
+        host: "localhost",
+        dialect: 'mysql'
+    })
 
 const postagens = sequelize.define('postagens', {
     titulo : {
@@ -20,11 +15,11 @@ const postagens = sequelize.define('postagens', {
 })
 
 postagens.create({
-    titulo: "qualquer",
-    conteudo: "isso ai"
+    titulo: "victor",
+    conteudo: "da de costa"
 })
 
-const usuarios = sequelize.define ('usuarios', {
+const usuarios = sequelize.define('usuarios', {
     nome: {
         type: Sequelize.STRING
     },
@@ -40,8 +35,8 @@ const usuarios = sequelize.define ('usuarios', {
 })
 
 usuarios.create({
-    nome: "laura",
-    sobrenome: "laurindo",
-    idade: 15,
-    email: "laura.gmail.com"
+    nome: "pedor",
+    sobrenome: "daga",
+    idade: 99,
+    email: "pedor.gmail.com"
 })
