@@ -18,10 +18,20 @@ const { engine } = require('express-handlebars');
     app.get('/avisos', function (req, res){
         res.render('avisos')
     });
+    
+    app.post('/tarefa',  function (req, res){
+        res.send('aviso cadastrado com sucesso')
+    })
 
     app.get('/formulario', function (req, res){
         res.render('formulario')
     })
+
+    app.post('/add', function(req, res){
+        res.send('formulario cadastrado!')
+    })
+
+    
 
 app.listen(3000, function(){
     console.log("servidor rodando na url localhost:3000");
