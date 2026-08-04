@@ -31,7 +31,9 @@ const { engine } = require('express-handlebars');
         res.send('formulario cadastrado!')
     })
 
-    
+    app.get('/professores', function(req, res){
+        res.render('professores')
+    })
 
 app.listen(3000, function(){
     console.log("servidor rodando na url localhost:3000");
