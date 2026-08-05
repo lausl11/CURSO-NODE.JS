@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const bodyparser = require("body-parser")
 const { engine } = require('express-handlebars');
 
 // config
@@ -8,13 +9,19 @@ const { engine } = require('express-handlebars');
     app.set('view engine', 'handlebars')
 
     // conexão ao BD com sequelize
-    const Sequelize = require('sequelize')
+    const Sequelize = require('sequelize');
+const bodyParser = require("body-parser");
     const sequelize = new Sequelize('sistemadecadastro', 'root', 'Lau17112010*', {
         host: "localhost",
         dialect: 'mysql'
     })
+
+    //body parser
+
+    app.use(bodyParser.urlencoded({extended: false}))
+    app.use(bodyParser.json())
     
-    // rota
+    // rotas
     app.get('/avisos', function (req, res){
         res.render('avisos')
     });
@@ -26,10 +33,18 @@ const { engine } = require('express-handlebars');
     app.get('/formulario', function (req, res){
         res.render('formulario')
     })
+app.post('/add', function(req, res) {
+    // Verifica se os dados do corpo existem antes de tentar aceder
+    if (!req.body || !req.body.titulo) {
+        return res.send('Nenhum dado foi enviado pelo formulário.');
+    }
 
-    app.post('/add', function(req, res){
-        res.send('formulario cadastrado!')
-    })
+    res.render('sucesso', {
+        layout: false,
+        titulo: req.body.titulo,
+        conteudo: req.body.conteudo
+    });
+});
 
     app.get('/professores', function(req, res){
         res.render('professores')
