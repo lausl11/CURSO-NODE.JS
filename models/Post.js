@@ -9,4 +9,4 @@ const post = db.sequelize.define('postagens', {
      }
 })
 
-module.exports = Post
+module.exports = post

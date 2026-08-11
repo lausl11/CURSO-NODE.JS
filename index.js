@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const bodyparser = require("body-parser")
 const { engine } = require('express-handlebars');
+const Post = require('./models/Post')
 
 // config
     // templade engine
@@ -10,7 +11,7 @@ const { engine } = require('express-handlebars');
 
     // conexão ao BD com sequelize
     const Sequelize = require('sequelize');
-const bodyParser = require("body-parser");
+    const bodyParser = require("body-parser");
     const sequelize = new Sequelize('sistemadecadastro', 'root', 'Lau17112010*', {
         host: "localhost",
         dialect: 'mysql'
@@ -33,18 +34,20 @@ const bodyParser = require("body-parser");
     app.get('/formulario', function (req, res){
         res.render('formulario')
     })
-app.post('/add', function(req, res) {
-    // Verifica se os dados do corpo existem antes de tentar aceder
-    if (!req.body || !req.body.titulo) {
-        return res.send('Nenhum dado foi enviado pelo formulário.');
-    }
+    app.post('/add', function(req, res){
 
-    res.render('sucesso', {
-        layout: false,
-        titulo: req.body.titulo,
-        conteudo: req.body.conteudo
-    });
-});
+        Post.create({
+            titulo: req.body.titulo,
+            conteudo: req.body.conteudo
+        }).then(function(){
+            res.send('forms criado com sucesso')
+        }).catch(function(erro){
+            res.send('houve um erro: '+erro)
+        })  
+    })
+    // Verifica se os dados do corpo existem antes de tentar aceder
+    
+   
 
     app.get('/professores', function(req, res){
         res.render('professores')
