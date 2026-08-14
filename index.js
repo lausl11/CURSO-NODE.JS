@@ -22,13 +22,14 @@ const Post = require('./models/Post')
     app.use(bodyParser.urlencoded({extended: false}))
     app.use(bodyParser.json())
     
+
+
     // rotas
-    app.get('/avisos', function (req, res){
-        res.render('avisos')
-    });
-    
-    app.post('/tarefa',  function (req, res){
-        res.send('aviso cadastrado com sucesso')
+    app.get('/', function(req, res){
+        Post.findAll({ raw: true }).then(function(posts){
+    console.log(posts)
+    res.render('home', { posts: posts })
+})
     })
 
     app.get('/formulario', function (req, res){
@@ -43,7 +44,7 @@ const Post = require('./models/Post')
             res.send('forms criado com sucesso')
         }).catch(function(erro){
             res.send('houve um erro: '+erro)
-        })  
+        })      
     })
     // Verifica se os dados do corpo existem antes de tentar aceder
     
