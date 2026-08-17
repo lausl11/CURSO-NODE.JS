@@ -46,7 +46,19 @@ const Post = require('./models/Post')
             res.send('houve um erro: '+erro)
         })      
     })
-    // Verifica se os dados do corpo existem antes de tentar aceder
+
+   app.get('/deletar/:id', function(req, res){
+    Post.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(function(){
+        res.send('deletado com sucesso')
+    }).catch(function(erro){
+        res.send('falhou')
+    })
+})
+
     
    
 
